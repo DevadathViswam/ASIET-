@@ -1,45 +1,43 @@
-#include <stdio.h>
-
-
-int binarySearch(int arr[], int size, int target) {
-    int left = 0;
-    int right = size - 1;
-
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-
-        
-        if (arr[mid] == target) {
-            return mid; 
-        }
-
-        
-        if (arr[mid] < target) {
-            left = mid + 1;
-        } 
-        
-        else {
-            right = mid - 1;
-        }
+#include<stdio.h>
+int main()
+{
+  int i,m,ar[100],n,s,count=0;
+  printf("Enter the limit=");
+  scanf("%d",&n);
+  printf("Enter the element=");
+  for(i=0;i<n;i++)
+  {
+    scanf("%d",&ar[i]);
     }
-
-   
-    return -1;
+  printf("Enter the number that you want to search=");
+  scanf("%d",&s);
+  int l=0;
+  int r=n-1;
+  while(l<=r)
+  {
+    m=l+(r-l)/2;
+    if(ar[m]==s)
+    {
+      printf("It is found");
+      count=1;
+      break;
+      }
+    if(ar[m]<s)
+    {
+       l=m+1;
+       }
+    else
+    {
+       r=m-1;
+       }
+       }
+       
+       
+       if (count==0)
+       {
+         printf("Not found");
+         }
+      
+     return 0;
+     
 }
-
-int main() {
-    int arr[] = {2, 3, 4, 10, 40}; 
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int target = 10;
-
-    int result = binarySearch(arr, size, target);
-
-    if (result != -1) {
-        printf("Element found at index %d\n", result);
-    } else {
-        printf("Element not found in array\n");
-    }
-
-    return 0;
-}
-
